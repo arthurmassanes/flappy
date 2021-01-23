@@ -2,6 +2,8 @@ const r = require('raylib');
 const { Background } = require('./Background');
 const { Bird } = require('./Bird');
 const { Obstacles } = require('./Obstacles');
+const { Score } = require('./Score');
+const { GameOverScreen } = require('./GameOverScreen');
 
 class Game {
     constructor() {
@@ -13,7 +15,17 @@ class Game {
         this.bird = new Bird();
         this.background = new Background();
         this.obstacles = new Obstacles();
+        this.score = new Score();
     }
+
+    restart = () => {
+        this.obstacles.obstacles = [];
+        this.bird.initPosition();
+        this.bird.isDead = false;
+        this.bird.speedY = 10;
+        this.score.restart();
+    }
+
     isRunning = () => {
         return (this.run && !r.WindowShouldClose());
     }
@@ -25,7 +37,13 @@ class Game {
         this.background.update();
         this.obstacles.update();
         this.bird.update();
+        this.score.update(this.bird.isDead, this.obstacles.obstacles[0]);
         this.bird.checkCollisions(this.background.baseY, this.obstacles.obstacles);
+        if (this.bird.isDead) {
+            const g = new GameOverScreen();
+            g.run();
+            this.restart();
+        }
         r.EndDrawing();
     }
 };

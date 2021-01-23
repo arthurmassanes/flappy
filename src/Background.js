@@ -1,5 +1,5 @@
 const r = require('raylib');
-
+const { speed } = require('./constants');
 class Background {
     constructor() {
         this.backgroundDay = r.LoadTexture('./assets/sprites/backgroundDay.png');
@@ -20,7 +20,7 @@ class Background {
     }
 
     drawBase = () => {
-        this.baseX -= 2;
+        this.baseX -= speed;
         r.DrawTexture(this.base, this.baseX, this.baseY, r.WHITE);
         r.DrawTexture(this.base, this.baseX + 500, this.baseY, r.WHITE);
         if (this.baseX <= -500) this.baseX = -10;

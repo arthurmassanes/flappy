@@ -1,5 +1,5 @@
 const r = require('raylib');
-
+const { speed } = require('./constants');
 class Bird {
     constructor() {
         this.sprites = this.loadSprites();
@@ -11,6 +11,7 @@ class Bird {
         this.height = 48;
         this.isDead = false;
         this.jumpForce = 0;
+        this.jumpAmount = 25;
     }
 
     initPosition = () => {
@@ -40,13 +41,15 @@ class Bird {
         if (!this.isDead) {
             this.posY += this.speedY;
             this.posY -= this.jumpForce;
-        } else this.posX -= 2;
+            this.speedY *= 1.015;
+        } else this.posX -= speed;
     }
 
     pollEvent = () => {
-        if (r.IsKeyPressed(r.KEY_SPACE)) {
-            this.jumpForce += 20;
-            if (this.jumpForce > 20) this.jumpForce = 20;
+        if (r.GetCharPressed()) {
+            this.jumpForce += this.jumpAmount;
+            this.speedY = 10;
+            if (this.jumpForce > this.jumpAmount) this.jumpForce = 20;
         }
         if (this.jumpForce > 0) this.jumpForce *= 0.96;
     }
