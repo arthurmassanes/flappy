@@ -20,9 +20,10 @@ class Background {
     }
 
     drawBase = () => {
+        this.baseX -= 5;
         r.DrawTexture(this.base, this.baseX, this.baseY, r.WHITE);
-        this.baseX--;
-        r.DrawTexture(this.base, this.baseX - , this.baseY, r.WHITE);
+        r.DrawTexture(this.base, this.baseX + 500, this.baseY, r.WHITE);
+        if (this.baseX <= -this.baseWidth) this.baseX = 500;
     }
 
     update = () => {

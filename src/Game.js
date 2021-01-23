@@ -1,4 +1,5 @@
 const r = require('raylib');
+const { Background } = require('./Background');
 const { Bird } = require('./Bird');
 
 class Game {
@@ -9,7 +10,7 @@ class Game {
         r.InitWindow(this.screenWidth, this.screenHeight, "raylib [core] example - basic window");
         r.SetTargetFPS(60);
         this.bird = new Bird();
-        this.background = r.LoadTexture('./assets/sprites/background.png');
+        this.background = new Background();
     }
     isRunning = () => {
         return (this.run && !r.WindowShouldClose());
@@ -18,6 +19,7 @@ class Game {
         r.BeginDrawing();
         r.ClearBackground(r.BLUE);
         r.DrawTexture(this.background, 0, 0, r.WHITE);
+        this.background.update();
         this.bird.update();
         r.EndDrawing();
     }
