@@ -1,6 +1,7 @@
 const r = require('raylib');
 const { Background } = require('./Background');
 const { Bird } = require('./Bird');
+const { Obstacles } = require('./Obstacles');
 
 class Game {
     constructor() {
@@ -11,6 +12,7 @@ class Game {
         r.SetTargetFPS(60);
         this.bird = new Bird();
         this.background = new Background();
+        this.obstacles = new Obstacles();
     }
     isRunning = () => {
         return (this.run && !r.WindowShouldClose());
@@ -20,6 +22,7 @@ class Game {
         r.ClearBackground(r.BLUE);
         r.DrawTexture(this.background, 0, 0, r.WHITE);        
         this.background.update();
+        this.obstacles.update();
         this.bird.update();
         this.bird.checkCollisions(this.background.baseY);
         r.EndDrawing();
