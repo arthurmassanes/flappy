@@ -7,6 +7,7 @@ class Bird {
         this.speedY = 10;
         this.spriteIndex = 0;
         this.timer = 0;
+        this.height = 48;
         this.isDead = false;
         this.jumpForce = 0;
     }
@@ -35,11 +36,9 @@ class Bird {
     }
 
     updatePosition = () => {
-        if (this.posY <= 720 + this.jumpForce) {
+        if (!this.isDead) {
             this.posY += this.speedY;
             this.posY -= this.jumpForce;
-        } else if (!this.isDead) {
-            this.isDead = true;
         } else this.posX -= 2;
     }
 
@@ -51,7 +50,14 @@ class Bird {
         if (this.jumpForce > 0) this.jumpForce *= 0.96;
     }
 
+    checkCollisions = (groundY) => {
+        if (this.posY >= groundY - this.height) {
+            this.isDead = true;
+        }
+    }
+
     update = () => {
+        this.sprite = 
         r.DrawTexture(this.sprites[this.spriteIndex], this.posX, this.posY, r.WHITE);
         if (!this.isDead) {
             this.updateAnimation();

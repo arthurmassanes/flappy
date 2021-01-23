@@ -21,6 +21,7 @@ class Game {
         r.DrawTexture(this.background, 0, 0, r.WHITE);        
         this.background.update();
         this.bird.update();
+        this.bird.checkCollisions(this.background.baseY);
         r.EndDrawing();
     }
 };
