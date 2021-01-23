@@ -8,6 +8,7 @@ class Bird {
         this.spriteIndex = 0;
         this.timer = 0;
         this.isDead = false;
+        this.jumpForce = 0;
     }
 
     initPosition = () => {
@@ -34,11 +35,20 @@ class Bird {
     }
 
     updatePosition = () => {
-        if (this.posY <= 720) {
+        if (this.posY <= 720 + this.jumpForce) {
             this.posY += this.speedY;
+            this.posY -= this.jumpForce;
         } else if (!this.isDead) {
             this.isDead = true;
         } else this.posX -= 2;
+    }
+
+    pollEvent = () => {
+        if (r.IsKeyPressed(r.KEY_SPACE)) {
+            this.jumpForce += 20;
+            if (this.jumpForce > 20) this.jumpForce = 20;
+        }
+        if (this.jumpForce > 0) this.jumpForce *= 0.96;
     }
 
     update = () => {
@@ -47,6 +57,7 @@ class Bird {
             this.updateAnimation();
         }
         this.updatePosition();
+        this.pollEvent();
     }
 }
 
