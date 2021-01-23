@@ -18,7 +18,7 @@ class Game {
     update = () => {
         r.BeginDrawing();
         r.ClearBackground(r.BLUE);
-        r.DrawTexture(this.background, 0, 0, r.WHITE);
+        r.DrawTexture(this.background, 0, 0, r.WHITE);        
         this.background.update();
         this.bird.update();
         r.EndDrawing();
