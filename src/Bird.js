@@ -7,6 +7,7 @@ class Bird {
         this.speedY = 10;
         this.spriteIndex = 0;
         this.timer = 0;
+        this.width = 68;
         this.height = 48;
         this.isDead = false;
         this.jumpForce = 0;
@@ -50,9 +51,20 @@ class Bird {
         if (this.jumpForce > 0) this.jumpForce *= 0.96;
     }
 
-    checkCollisions = (groundY) => {
+    colidesWithObstacle = (o) => { // to know if it collides i check if
+        return (this.posX >= (o.x - this.width - o.width) && this.posX <= o.x// they have the same x
+            && !(this.posY >= o.y && this.posY <= o.y + o.gap - this.height)); // but different y
+    }
+
+    checkCollisions = (groundY, obstacles) => {
         if (this.posY >= groundY - this.height) {
             this.isDead = true;
+        } else {
+            obstacles.map((o) => {
+                if (this.colidesWithObstacle(o)) {
+                    this.isDead = true;
+                }
+            });
         }
     }
 

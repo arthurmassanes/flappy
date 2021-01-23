@@ -17,14 +17,15 @@ class Game {
     isRunning = () => {
         return (this.run && !r.WindowShouldClose());
     }
+
     update = () => {
         r.BeginDrawing();
         r.ClearBackground(r.BLUE);
-        r.DrawTexture(this.background, 0, 0, r.WHITE);        
+        r.DrawTexture(this.background, 0, 0, r.WHITE);
         this.background.update();
         this.obstacles.update();
         this.bird.update();
-        this.bird.checkCollisions(this.background.baseY);
+        this.bird.checkCollisions(this.background.baseY, this.obstacles.obstacles);
         r.EndDrawing();
     }
 };

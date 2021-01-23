@@ -12,13 +12,13 @@ class Obstacles {
     createObstacle = () => {
         const posY = r.GetRandomValue(100, 500);
         const posX = this.start;
-        this.obstacles.push({ x: posX, y: posY, gap: this.gap });
+        this.obstacles.push({ x: posX, y: posY, gap: this.gap, width: this.texture.width });
     }
 
     draw = () => {
         this.obstacles.map((o) => {
             r.DrawTextureEx(this.texture, { x: o.x, y: o.y }, 180, 1, r.WHITE);
-            r.DrawTexture(this.texture,  o.x - this.pipeWidth, o.y + o.gap, r.WHITE);
+            r.DrawTexture(this.texture,  o.x - this.texture.width, o.y + o.gap, r.WHITE);
         });
     }
 
