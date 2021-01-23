@@ -57,7 +57,6 @@ class Bird {
     }
 
     update = () => {
-        this.sprite = 
         r.DrawTexture(this.sprites[this.spriteIndex], this.posX, this.posY, r.WHITE);
         if (!this.isDead) {
             this.updateAnimation();
