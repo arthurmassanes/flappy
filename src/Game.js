@@ -11,6 +11,7 @@ class Game {
         this.screenWidth = 500;
         this.screenHeight = 1000;
         r.InitWindow(this.screenWidth, this.screenHeight, "raylib [core] example - basic window");
+        r.InitAudioDevice();
         r.SetTargetFPS(60);
         this.bird = new Bird();
         this.background = new Background();

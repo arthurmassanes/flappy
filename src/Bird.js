@@ -12,6 +12,7 @@ class Bird {
         this.isDead = false;
         this.jumpForce = 0;
         this.jumpAmount = 25;
+        this.jumpSound = r.LoadSound('./assets/audio/wing.wav');
     }
 
     initPosition = () => {
@@ -46,7 +47,8 @@ class Bird {
     }
 
     pollEvent = () => {
-        if (r.GetCharPressed()) {
+        if (r.GetCharPressed()) { // jumping
+            r.PlaySound(this.jumpSound);
             this.jumpForce += this.jumpAmount;
             this.speedY = 10;
             if (this.jumpForce > this.jumpAmount) this.jumpForce = 20;

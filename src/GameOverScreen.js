@@ -5,10 +5,12 @@ class GameOverScreen {
     constructor(background, score) {
         this.background = background;
         this.texture = r.LoadTexture('./assets/sprites/gameover.png');
+        this.sound = r.LoadSound('./assets/audio/die.wav');
         this.score = score || 0;
     }
     
     run = () => {
+        r.PlaySound(this.sound);
         speed = 0;
         while (!r.GetKeyPressed()) {
             this.background.update();

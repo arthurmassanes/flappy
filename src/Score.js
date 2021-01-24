@@ -2,6 +2,7 @@ const r = require('raylib');
 
 class Score {
     constructor() {
+        this.pointSound = r.LoadSound('./assets/audio/point.wav');
         this.value = 0;
     }
 
@@ -19,6 +20,7 @@ class Score {
         if (!isGameOver && obstacle
             && obstacle.x === 100) {
                 this.value += 1;
+                r.PlaySound(this.pointSound);
             }
 
     }
