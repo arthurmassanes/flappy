@@ -40,7 +40,7 @@ class Game {
         this.score.update(this.bird.isDead, this.obstacles.obstacles[0]);
         this.bird.checkCollisions(this.background.baseY, this.obstacles.obstacles);
         if (this.bird.isDead) {
-            const g = new GameOverScreen();
+            const g = new GameOverScreen(this.background, this.score.value);
             g.run();
             this.restart();
         }

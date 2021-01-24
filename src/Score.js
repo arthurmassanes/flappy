@@ -7,7 +7,7 @@ class Score {
 
     draw = () => {
         r.DrawText(this.value.toString(), 220, 30, 100, r.BLACK);
-        r.DrawText(this.value.toString(), 225, 25, 100, r.WHITE);
+        r.DrawText(this.value.toString(), 220, 25, 100, r.WHITE);
     }
 
     restart = () => {
