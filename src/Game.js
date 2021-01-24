@@ -25,6 +25,7 @@ class Game {
         this.bird.isDead = false;
         this.bird.speedY = 10;
         this.score.restart();
+        this.background.pickNewBackground();
     }
 
     isRunning = () => {

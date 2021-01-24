@@ -3,7 +3,7 @@ const { speed } = require('./constants');
 class Background {
     constructor() {
         this.backgroundDay = r.LoadTexture('./assets/sprites/backgroundDay.png');
-        this.backgroundNight = r.LoadTexture('./assets/sprites/backgroundDay.png');
+        this.backgroundNight = r.LoadTexture('./assets/sprites/backgroundNight.png');
         this.background;
 
         this.baseY = 776;
