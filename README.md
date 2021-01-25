@@ -10,3 +10,4 @@ npm install
 npm start
 # flap flap using the spacebar
 ```
+![screenshot](https://raw.githubusercontent.com/arthurmassanes/flappy/master/screenshot.png)
