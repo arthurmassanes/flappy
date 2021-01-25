@@ -7,6 +7,7 @@ class Score {
     }
 
     draw = () => {
+        // twice for shadow effect
         r.DrawText(this.value.toString(), 220, 30, 100, r.BLACK);
         r.DrawText(this.value.toString(), 220, 25, 100, r.WHITE);
     }
@@ -21,7 +22,7 @@ class Score {
                 obstacle.passed = true;
                 this.value += 1;
                 r.PlaySound(this.pointSound);
-                speed += 0.2;
+                speed += 0.2; // for dat spice
                 console.log(speed)
             }
 

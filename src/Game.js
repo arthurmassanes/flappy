@@ -42,10 +42,10 @@ class Game {
         r.DrawTexture(this.background, 0, 0, r.WHITE);
         this.background.update();
         this.obstacles.update();
-        this.score.update(this.obstacles.obstacles[0], this.bird);
+        this.score.update(this.obstacles.obstacles[0], this.bird); // check if we passe the obstacle (first one is closest)
         this.bird.update();
         this.bird.checkCollisions(this.background.baseY, this.obstacles.obstacles);
-        if (this.bird.isDead) {
+        if (this.bird.isDead) { // game over screen if bird dies
             const g = new GameOverScreen(this.background, this.score.value);
             g.run();
             this.restart();

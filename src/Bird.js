@@ -53,7 +53,7 @@ class Bird {
             this.speedY = 10;
             if (this.jumpForce > this.jumpAmount) this.jumpForce = 20;
         }
-        if (this.jumpForce > 0) this.jumpForce *= 0.96;
+        if (this.jumpForce > 0) this.jumpForce *= 0.96; // jump force decreasing over time
     }
 
     colidesWithObstacle = (o) => { // to know if it collides i check if
@@ -62,9 +62,11 @@ class Bird {
     }
 
     checkCollisions = (groundY, obstacles) => {
+        //  with the ground
         if (this.posY >= groundY - this.height) {
             this.isDead = true;
         } else {
+            // and obstacles
             obstacles.map((o) => {
                 if (this.colidesWithObstacle(o)) {
                     this.isDead = true;

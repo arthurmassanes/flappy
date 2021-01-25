@@ -17,12 +17,14 @@ class Obstacles {
 
     draw = () => {
         this.obstacles.map((o) => {
+            // put one pipe on each direction
             r.DrawTextureEx(this.texture, { x: o.x, y: o.y }, 180, 1, r.WHITE);
             r.DrawTexture(this.texture,  o.x - this.texture.width - 2, o.y + o.gap, r.WHITE);
         });
     }
 
     destroyObstacles = () => {
+        // remove if out of sight
         this.obstacles = this.obstacles.filter((o) => (o.x > -50));
     }
 
@@ -31,7 +33,7 @@ class Obstacles {
         this.obstacles.map((obstacle) => {
             obstacle.x -= speed;
         });
-        if (this.obstacles.length < 3) this.createObstacle();
+        if (this.obstacles.length < 3) this.createObstacle(); // maximum 3 obstacles in sight at once
         else if (this)
         this.destroyObstacles();
     }
