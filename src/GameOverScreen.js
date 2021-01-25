@@ -1,6 +1,4 @@
 const r = require('raylib');
-let { speed } = require('./constants');
-
 class GameOverScreen {
     constructor(background, score) {
         this.background = background;
@@ -11,7 +9,6 @@ class GameOverScreen {
     
     run = () => {
         r.PlaySound(this.sound);
-        speed = 0;
         while (!r.GetKeyPressed()) {
             this.background.update();
             r.BeginDrawing();
@@ -23,7 +20,6 @@ class GameOverScreen {
             r.DrawText('[ESC] Exit', 10, 10, 30, r.WHITE);
             r.EndDrawing();
         }
-        speed = 4;
     }
 }
 

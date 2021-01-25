@@ -1,5 +1,5 @@
 const r = require('raylib');
-const { speed } = require('./constants');
+
 class Bird {
     constructor() {
         this.sprites = this.loadSprites();

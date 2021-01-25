@@ -1,5 +1,5 @@
 const r = require('raylib');
-const { speed } = require('./constants');
+
 class Background {
     constructor() {
         this.backgroundDay = r.LoadTexture('./assets/sprites/backgroundDay.png');

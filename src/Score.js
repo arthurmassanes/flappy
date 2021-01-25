@@ -15,12 +15,14 @@ class Score {
         this.value = 0;
     }
 
-    update = (isGameOver, obstacle) => {
+    update = (obstacle, bird) => {
         this.draw();
-        if (!isGameOver && obstacle
-            && obstacle.x === 100) {
+        if (obstacle.x - obstacle.width <= bird.posX && !obstacle.passed) {
+                obstacle.passed = true;
                 this.value += 1;
                 r.PlaySound(this.pointSound);
+                speed += 0.2;
+                console.log(speed)
             }
 
     }
