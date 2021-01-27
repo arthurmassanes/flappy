@@ -83,6 +83,10 @@ class Bird {
         this.updatePosition();
         this.pollEvent();
     }
+    free = () => {
+        this.sprites.map((s) => r.UnloadTexture(s));
+        r.UnloadSound(this.jumpSound);
+    }
 }
 
 module.exports.Bird = Bird;

@@ -52,6 +52,12 @@ class Game {
         }
         r.EndDrawing();
     }
+    unload = () => {
+        this.bird.free();
+        this.background.free();
+        this.obstacles.free();
+        this.score.free();
+    }
 };
 
 module.exports.Game = Game;

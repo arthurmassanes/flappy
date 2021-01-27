@@ -20,6 +20,8 @@ class GameOverScreen {
             r.DrawText('[ESC] Exit', 10, 10, 30, r.WHITE);
             r.EndDrawing();
         }
+        r.UnloadTexture(this.texture);
+        r.UnloadSound(this.sound);
     }
 }
 

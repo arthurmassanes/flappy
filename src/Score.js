@@ -23,9 +23,11 @@ class Score {
                 this.value += 1;
                 r.PlaySound(this.pointSound);
                 speed += 0.2; // for dat spice
-                console.log(speed)
             }
 
+    }
+    free = () => {
+        r.UnloadSound(this.pointSound);
     }
 }
 

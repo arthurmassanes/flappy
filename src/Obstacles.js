@@ -37,6 +37,9 @@ class Obstacles {
         else if (this)
         this.destroyObstacles();
     }
+    free = () => {
+        r.UnloadTexture(this.texture);
+    }
 }
 
 module.exports.Obstacles = Obstacles;

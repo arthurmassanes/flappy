@@ -30,6 +30,11 @@ class Background {
         r.DrawTexture(this.background, 0, 0, r.WHITE);
         this.drawBase();
     }
+    free = () => {
+        r.UnloadTexture(this.backgroundDay);
+        r.UnloadTexture(this.backgroundNight);
+        r.UnloadTexture(this.base);
+    }
 }
 
 module.exports.Background = Background;
