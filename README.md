@@ -1,6 +1,11 @@
 # flappy
 Flappy bird in JS using Raylib 
 
+## Requirements:
+`cmake`
+
+`node (>= 12)`
+
 # How to install & run
 
 ```bash
