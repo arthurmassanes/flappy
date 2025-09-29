@@ -1,5 +1,6 @@
 # flappy
 Flappy bird in JS using Raylib 
+
 Featured on the official [repo examples](https://github.com/RobLoach/node-raylib#examples)
 
 ## Requirements:
